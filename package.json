@@ -1,0 +1,18 @@
+{
+    "name": "sc-cleaning-project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node Backend/server.js",
+        "develop": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+        "install": "cd backend && npm i && cd ../frontend && npm i",
+        "build": "cd frontend && npm run build",
+        "render-build": "npm install && npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+    }
+}
