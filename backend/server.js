@@ -8,8 +8,7 @@ const cors = require('cors');
 const { typeDefs, resolvers } = require('./schema');
 const db = require('./config/connection');
 const { ApolloServerPluginLandingPageDisabled } = require('@apollo/server/plugin/disabled');
-const services = require('./service/index');
-require('./cron/cron')
+const services = require('./services/index');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
