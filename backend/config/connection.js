@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const dbUri = process.env.DB_URI || 'mongodb://127.0.0.1:27017/PokeTrack';
+const dbUri = process.env.DB_URI || 'mongodb://127.0.0.1:27017/sc-cleaning';
 
 mongoose.connect(dbUri)
   .then(() => {
