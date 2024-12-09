@@ -1,8 +1,7 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
 
-const adminSchema = new Schema({
-  username: {
+const roleSchema = new Schema({
+  employeeId: {
     type: String,
     unique: true,
     required: true,
@@ -29,6 +28,10 @@ const adminSchema = new Schema({
     required: true,
     trim: true,
   },
+  role: {
+    type: String,
+    required: true,
+  }
 });
 
 adminSchema.pre('save', async function (next) {
