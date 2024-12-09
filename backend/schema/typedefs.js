@@ -13,6 +13,25 @@ type User {
     password: String!
 }
 
+type employee {
+  _id: ID!
+  employeeId: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  role: String!
+}
+
+input UpdateEmployeeInput {
+  employeeId: String
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  role: String
+}
+
 input UpdateUserInput {
     username: String
     email: String
