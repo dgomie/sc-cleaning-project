@@ -7,6 +7,8 @@ type Auth {
 type User {
     _id: ID!
     username: String!
+    firstName: String!
+    lastName: String!
     email: String!
     password: String!
 }
@@ -14,6 +16,8 @@ type User {
 input UpdateUserInput {
     username: String
     email: String
+    firstName: String
+    lastName: String
     password: String
 }
 
@@ -23,7 +27,7 @@ type Query {
 }
 
 type Mutation {
-  createUser(username: String!, email: String!, password: String!): Auth
+  createUser(username: String!, firstName, lastName, email: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
   removeUser(userId: ID!): User
   updateUser(userId: ID!, updateData: UpdateUserInput!): User

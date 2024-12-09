@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const userSchema = new Schema({
+const adminSchema = new Schema({
   username: {
     type: String,
     unique: true,
@@ -31,7 +31,7 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.pre('save', async function (next) {
+adminSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -41,7 +41,7 @@ userSchema.pre('save', async function (next) {
 });
 
 
-userSchema.post('findOneAndDelete', async function (doc, next) {
+adminSchema.post('findOneAndDelete', async function (doc, next) {
   try {
     if (doc) {
       await Collection.deleteMany({ userId: doc._id });
@@ -52,10 +52,10 @@ userSchema.post('findOneAndDelete', async function (doc, next) {
   }
 });
 
-userSchema.methods.isCorrectPassword = async function (password) {
+adminSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const User = model('User', userSchema);
+const Admin = model('Admin', adminSchema);
 
-module.exports = User;
+module.exports = Admin;
