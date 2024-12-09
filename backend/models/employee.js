@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const adminSchema = new Schema({
-  username: {
+const employeeSchema = new Schema({
+  employeeId: {
     type: String,
     unique: true,
     required: true,
@@ -12,7 +12,7 @@ const adminSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-  }, 
+  },
   lastName: {
     type: String,
     required: true,
@@ -29,9 +29,14 @@ const adminSchema = new Schema({
     required: true,
     trim: true,
   },
+  role: {
+    type: String,
+    required: true,
+    enum: ['admin', 'employee'],
+  },
 });
 
-adminSchema.pre('save', async function (next) {
+employeeSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -40,8 +45,7 @@ adminSchema.pre('save', async function (next) {
   next();
 });
 
-
-adminSchema.post('findOneAndDelete', async function (doc, next) {
+employeeSchema.post('findOneAndDelete', async function (doc, next) {
   try {
     if (doc) {
       await Collection.deleteMany({ userId: doc._id });
@@ -52,10 +56,10 @@ adminSchema.post('findOneAndDelete', async function (doc, next) {
   }
 });
 
-adminSchema.methods.isCorrectPassword = async function (password) {
+employeeSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const Admin = model('Admin', adminSchema);
+const Employee = model('Employee', employeeSchema);
 
-module.exports = Admin;
+module.exports = Employee;
