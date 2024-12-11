@@ -2,7 +2,6 @@ const { User, Employee } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signToken } = require('../utils/auth');
 
-
 const resolvers = {
   Query: {
     getUsers: async () => {
@@ -23,12 +22,21 @@ const resolvers = {
         throw new Error('Failed to get user');
       }
     },
-    
   },
   Mutation: {
-    createUser: async (_, { username, email, password }) => {
+    createUser: async (
+      _,
+      { username, employeeId, email, firstName, lastName, password }
+    ) => {
       try {
-        const newUser = await User.create({ username, email, password });
+        const newUser = await User.create({
+          username,
+          employeeId,
+          email,
+          firstName,
+          lastName,
+          password,
+        });
         const token = signToken(newUser);
         return { token, user: newUser };
       } catch (error) {
@@ -71,9 +79,19 @@ const resolvers = {
       return { token, user };
     },
 
-    createEmployee: async (_, { employeeId, email, firstName, lastName, password, role }) => {
+    createEmployee: async (
+      _,
+      { employeeId, email, firstName, lastName, password, role }
+    ) => {
       try {
-        const newEmployee = await Employee.create({ employeeId, email, firstName, lastName, password, role });
+        const newEmployee = await Employee.create({
+          employeeId,
+          email,
+          firstName,
+          lastName,
+          password,
+          role,
+        });
         const token = signToken(newEmployee);
         return { token, employee: newEmployee };
       } catch (error) {
@@ -91,12 +109,14 @@ const resolvers = {
     },
 
     updateUser: async (_, { userId, updateData }) => {
-      const updatedUser = await User.findOneAndUpdate({ _id: userId }, updateData, { new: true });
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: userId },
+        updateData,
+        { new: true }
+      );
       return updatedUser;
     },
-
   },
 };
 
 module.exports = resolvers;
-
