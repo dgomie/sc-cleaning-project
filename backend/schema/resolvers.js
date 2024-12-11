@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Employee } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signToken } = require('../utils/auth');
 
@@ -39,6 +39,23 @@ const resolvers = {
 
     login: async (_, { username, password }) => {
       const user = await User.findOne({ username });
+      if (!user) {
+        throw new GraphQLError('Invalid credentials', {
+          extensions: { code: 'UNAUTHENTICATED' },
+        });
+      }
+      const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new GraphQLError('Invalid credentials', {
+          extensions: { code: 'UNAUTHENTICATED' },
+        });
+      }
+      const token = signToken(user);
+      return { token, user };
+    },
+
+    employeeLogin: async (_, { employeeId, password }) => {
+      const user = await Employee.findOne({ employeeId });
       if (!user) {
         throw new GraphQLError('Invalid credentials', {
           extensions: { code: 'UNAUTHENTICATED' },
