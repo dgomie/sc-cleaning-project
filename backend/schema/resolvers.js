@@ -71,6 +71,17 @@ const resolvers = {
       return { token, user };
     },
 
+    createEmployee: async (_, { employeeId, email, firstName, lastName, password, role }) => {
+      try {
+        const newEmployee = await Employee.create({ employeeId, email, firstName, lastName, password, role });
+        const token = signToken(newEmployee);
+        return { token, employee: newEmployee };
+      } catch (error) {
+        console.error('Error creating employee model:', error);
+        throw new Error('Failed to create employee model');
+      }
+    },
+
     removeUser: async (_, { userId }) => {
       const deletedUser = await User.findByIdAndDelete(userId);
       if (!deletedUser) {
