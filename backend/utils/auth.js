@@ -1,8 +1,9 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
 
-const secret = process.env.JWT_SECRET || 'your_secret_key';
+const secret = process.env.JWT_SECRET;
 const expiration = '48h';
 
 module.exports = {
