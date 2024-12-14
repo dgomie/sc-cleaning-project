@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Employee } = require('../models');
 
-const secret = process.env.JWT_SECRET;
+const secret = process.env.JWT_EMPLOYEE_SECRET;
 const expiration = '48h';
 
 module.exports = {
