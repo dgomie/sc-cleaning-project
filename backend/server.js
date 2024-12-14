@@ -2,12 +2,15 @@ const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
-const { authMiddleware } = require('./utils/auth');
+const { userAuthMiddleware } = require('./utils/user-auth');
+const { employeeAuthMiddleware } = require('./utils/employee-auth');
 require('dotenv').config();
 const cors = require('cors');
 const { typeDefs, resolvers } = require('./schema');
 const db = require('./config/connection');
-const { ApolloServerPluginLandingPageDisabled } = require('@apollo/server/plugin/disabled');
+const {
+  ApolloServerPluginLandingPageDisabled,
+} = require('@apollo/server/plugin/disabled');
 const services = require('./services/index');
 
 const PORT = process.env.PORT || 3001;
@@ -21,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  plugins
+  plugins,
 });
 
 const startApolloServer = async () => {
@@ -38,7 +41,39 @@ const startApolloServer = async () => {
   app.use(
     '/graphql',
     expressMiddleware(server, {
-      context: authMiddleware,
+      context: async ({ req }) => {
+        let token = req.body.token || req.query.token || req.headers.authorization;
+        if (req.headers.authorization) {
+          token = token.split(' ').pop().trim();
+        }
+        if (!token) {
+          return req;
+        }
+
+        try {
+          const employeeData = jwt.verify(token, process.env.JWT_EMPLOYEE_SECRET);
+          req.employee = employeeData.data;
+          const employee = await Employee.findById(employeeData.data.id);
+          if (employee) {
+            req.employee = employee;
+            return employeeAuthMiddleware({ req });
+          }
+        } catch (err) {
+          try {
+            const userData = jwt.verify(token, process.env.JWT_USER_SECRET);
+            req.user = userData.data;
+            const user = await User.findById(userData.data.id);
+            if (user) {
+              req.user = user;
+              return userAuthMiddleware({ req });
+            }
+          } catch (err) {
+            console.error('Invalid token', err);
+          }
+        }
+
+        return req;
+      },
     })
   );
 

@@ -1,6 +1,7 @@
 const { User, Employee } = require('../models');
 const { GraphQLError } = require('graphql');
-const { signToken } = require('../utils/auth');
+const { signUserToken } = require('../utils/user-auth');
+const { signEmployeeToken } = require('../utils/employee-auth')
 
 const resolvers = {
   Query: {
@@ -37,7 +38,7 @@ const resolvers = {
           lastName,
           password,
         });
-        const token = signToken(newUser);
+        const token = signUserToken(newUser);
         return { token, user: newUser };
       } catch (error) {
         console.error('Error creating user model:', error);
@@ -58,25 +59,25 @@ const resolvers = {
           extensions: { code: 'UNAUTHENTICATED' },
         });
       }
-      const token = signToken(user);
+      const token = signUserToken(user);
       return { token, user };
     },
 
     employeeLogin: async (_, { employeeId, password }) => {
-      const user = await Employee.findOne({ employeeId });
-      if (!user) {
+      const employee = await Employee.findOne({ employeeId });
+      if (!employee) {
         throw new GraphQLError('Invalid credentials', {
           extensions: { code: 'UNAUTHENTICATED' },
         });
       }
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await employee.isCorrectPassword(password);
       if (!correctPw) {
         throw new GraphQLError('Invalid credentials', {
           extensions: { code: 'UNAUTHENTICATED' },
         });
       }
-      const token = signToken(user);
-      return { token, user };
+      const token = signEmployeeToken(employee);
+      return { token, employee };
     },
 
     createEmployee: async (
@@ -92,7 +93,7 @@ const resolvers = {
           password,
           role,
         });
-        const token = signToken(newEmployee);
+        const token = signEmployeeToken(newEmployee);
         return { token, employee: newEmployee };
       } catch (error) {
         console.error('Error creating employee model:', error);
