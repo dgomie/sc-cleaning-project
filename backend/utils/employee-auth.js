@@ -7,11 +7,11 @@ const secret = process.env.JWT_EMPLOYEE_SECRET;
 const expiration = '48h';
 
 module.exports = {
-  signToken: ({ id, employeeId, role }) => {
+  signEmployeeToken: ({ id, employeeId, role }) => {
     const payload = { id, employeeId, role };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
-  authMiddleware: async ({ req }) => {
+  employeeAuthMiddleware: async ({ req }) => {
     let token = req.body.token || req.query.token || req.headers.authorization;
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();

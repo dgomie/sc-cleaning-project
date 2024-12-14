@@ -7,11 +7,11 @@ const secret = process.env.JWT_USER_SECRET;
 const expiration = '48h';
 
 module.exports = {
-  signToken: ({ id, username, email }) => {
+  signUserToken: ({ id, username, email }) => {
     const payload = { id, username, email };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
-  authMiddleware: async ({ req }) => {
+  userAuthMiddleware: async ({ req }) => {
     let token = req.body.token || req.query.token || req.headers.authorization;
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
