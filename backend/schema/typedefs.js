@@ -53,10 +53,12 @@ type Query {
 type Mutation {
   createUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
   login(username: String!, password: String!): Auth
-  employeeLogin(employeeId: String!, password: String!): EmployeeAuth
-  createEmployee(employeeId: String!, firstName: String!, lastName: String!, email: String!, password: String!, role: String!): EmployeeAuth
   removeUser(userId: ID!): User
   updateUser(userId: ID!, updateData: UpdateUserInput!): User
+  employeeLogin(employeeId: String!, password: String!): EmployeeAuth
+  createEmployee(employeeId: String!, firstName: String!, lastName: String!, email: String!, password: String!, role: String!): EmployeeAuth
+  removeEmployee(_id: ID!): Employee
+  updateEmployee(_id: ID!, updateData: UpdateEmployeeInput!): Employee
 }
 `;
 
