@@ -56,6 +56,8 @@ input UpdateUserInput {
 type Query {
   getUsers: [User]
   getUser(userId: ID!): User
+  getEmployees: [Employee]
+  getEmployee(employeeId: ID!): Employee
 }
 
 type Mutation {
