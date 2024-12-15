@@ -133,7 +133,7 @@ const resolvers = {
         updateData,
         { new: true }
       );
-      return updateData;
+      return updatedEmployee;
     },
 
   },
