@@ -28,6 +28,14 @@ type Employee {
   role: String!
 }
 
+type Package {
+  _id: ID!
+  package: String!
+  price: Float!
+  userId: ID!
+  recurring: Boolean!
+}
+
 input UpdateEmployeeInput {
   employeeId: String
   firstName: String
