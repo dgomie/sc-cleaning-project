@@ -57,7 +57,7 @@ type Query {
   getUsers: [User]
   getUser(userId: ID!): User
   getEmployees: [Employee]
-  getEmployee(employeeId: ID!): Employee
+  getEmployee(employeeId: String!): Employee
 }
 
 type Mutation {
