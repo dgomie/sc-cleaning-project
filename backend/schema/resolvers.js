@@ -63,6 +63,23 @@ const resolvers = {
       return { token, user };
     },
 
+    removeUser: async (_, { userId }) => {
+      const deletedUser = await User.findByIdAndDelete(userId);
+      if (!deletedUser) {
+        throw new Error('User not found.');
+      }
+      return deletedUser;
+    },
+
+    updateUser: async (_, { userId, updateData }) => {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: userId },
+        updateData,
+        { new: true }
+      );
+      return updatedUser;
+    },
+
     employeeLogin: async (_, { employeeId, password }) => {
       const employee = await Employee.findOne({ employeeId });
       if (!employee) {
@@ -79,6 +96,7 @@ const resolvers = {
       const token = signEmployeeToken(employee);
       return { token, employee };
     },
+
 
     createEmployee: async (
       _,
@@ -101,22 +119,23 @@ const resolvers = {
       }
     },
 
-    removeUser: async (_, { userId }) => {
-      const deletedUser = await User.findByIdAndDelete(userId);
-      if (!deletedUser) {
-        throw new Error('User not found.');
+    removeEmployee: async (_, { _id }) => {
+      const deletedEmployee = await Employee.findByIdAndDelete(_id);
+      if (!deletedEmployee) {
+        throw new Error('Employee not found.');
       }
-      return deletedUser;
+      return deletedEmployee;
     },
 
-    updateUser: async (_, { userId, updateData }) => {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: userId },
+    updateEmployee: async (_, { _id, updateData }) => {
+      const updatedEmployee = await Employee.findOneAndUpdate(
+        { _id: _id },
         updateData,
         { new: true }
       );
-      return updatedUser;
+      return updateData;
     },
+
   },
 };
 
