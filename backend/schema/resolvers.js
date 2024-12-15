@@ -1,7 +1,7 @@
 const { User, Employee } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signUserToken } = require('../utils/user-auth');
-const { signEmployeeToken } = require('../utils/employee-auth')
+const { signEmployeeToken } = require('../utils/employee-auth');
 
 const resolvers = {
   Query: {
@@ -21,6 +21,26 @@ const resolvers = {
       } catch (error) {
         console.error('error getting user', error);
         throw new Error('Failed to get user');
+      }
+    },
+    getEmployees: async () => {
+      try {
+        const allEmployees = await Employee.find().select('-password');
+        return allEmployees;
+      } catch (error) {
+        console.error('error getting employees', error);
+        throw new Error('Failed to get employees');
+      }
+    },
+    getEmployee: async (_, { employeeId }) => {
+      try {
+        const oneEmployee = await Employee.findOne({ employeeId }).select(
+          '-password'
+        );
+        return oneEmployee;
+      } catch (error) {
+        console.error('error getting employee', error);
+        throw new Error('Failed to get employee');
       }
     },
   },
@@ -97,7 +117,6 @@ const resolvers = {
       return { token, employee };
     },
 
-
     createEmployee: async (
       _,
       { employeeId, email, firstName, lastName, password, role }
@@ -135,7 +154,6 @@ const resolvers = {
       );
       return updatedEmployee;
     },
-
   },
 };
 
