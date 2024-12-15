@@ -45,16 +45,6 @@ employeeSchema.pre('save', async function (next) {
   next();
 });
 
-employeeSchema.post('findOneAndDelete', async function (doc, next) {
-  try {
-    if (doc) {
-      await Collection.deleteMany({ userId: doc._id });
-    }
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
 
 employeeSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);

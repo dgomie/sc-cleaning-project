@@ -41,17 +41,6 @@ userSchema.pre('save', async function (next) {
 });
 
 
-userSchema.post('findOneAndDelete', async function (doc, next) {
-  try {
-    if (doc) {
-      await Collection.deleteMany({ userId: doc._id });
-    }
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
-
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
