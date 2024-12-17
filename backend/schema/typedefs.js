@@ -1,4 +1,6 @@
 const typeDefs = `
+scalar Date
+
 type Auth {
     token: ID!
     user: User
@@ -34,6 +36,7 @@ type Package {
   price: Float!
   userId: ID!
   recurring: Boolean!
+  dateCreated: Date!
 }
 
 input UpdateEmployeeInput {
