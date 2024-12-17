@@ -19,7 +19,11 @@ const packageSchema = new Schema({
     required: true,
     default: false
   },
-
+  dateCreated: {
+    type: Date,
+    required: true,
+    default: Date.now
+  },
 });
 
 
