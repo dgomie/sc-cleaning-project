@@ -2,8 +2,26 @@ const { User, Employee } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signUserToken } = require('../utils/user-auth');
 const { signEmployeeToken } = require('../utils/employee-auth');
+const { GraphQLScalarType, Kind } = require('graphql');
 
 const resolvers = {
+  Date: new GraphQLScalarType({
+    name: 'Date',
+    description: 'Custom Date scalar type',
+    parseValue(value) {
+      return new Date(value);
+    },
+    serialize(value) {
+      return value.toISOString(); t
+    },
+    parseLiteral(ast) {
+      if (ast.kind === Kind.STRING) {
+        return new Date(ast.value);
+      }
+      return null;
+    },
+  }),
+
   Query: {
     getUsers: async () => {
       try {
