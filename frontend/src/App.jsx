@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 // import Footer from './components/other/footer';
 import './app.css'
-
+import Navbar from './components/navbar/navbar';
 
 
 // import {
@@ -14,7 +14,6 @@ import './app.css'
 // import { setContext } from '@apollo/client/link/context';
 
 
-// import Navbar from './components/other/navbar';
 
 
 // const httpLink = createHttpLink({
@@ -41,7 +40,7 @@ function App() {
   return (
     // <ApolloProvider client={client}>
     <>
-
+      <Navbar />
       <Outlet />
 
 
