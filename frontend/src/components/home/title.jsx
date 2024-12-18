@@ -13,7 +13,7 @@ export default function Title() {
                 Cleaning
             </Box>
             <br />
-            <Box sx={{ fontSize: isSmallScreen ? '10px' : '16px' }}>
+            <Box sx={{ fontSize: isSmallScreen ? '10px' : '32px' }}>
 
 
 
