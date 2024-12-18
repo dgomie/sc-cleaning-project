@@ -28,7 +28,7 @@ export default function HomePage() {
         topRef.current.scrollIntoView({ behavior: 'smooth' })
         setTimeout(() => {
             setShowPackages(false)
-        }, 500) // Adjust the timeout duration to match the scroll duration
+        }, 700) // Adjust the timeout duration to match the scroll duration
     }
 
     return (
@@ -40,8 +40,8 @@ export default function HomePage() {
                             <Title />
                         </Box>
                     </Box>
-                    <Box sx={{ width: isSmallScreen ? '100%' : '50%', display: 'flex', justifyContent: 'center' }}>
-                        <Box sx={{ textAlign: 'center', marginTop: isSmallScreen ? '20px' : '150px', width: isSmallScreen ? '270px' : '400px' }}>
+                    <Box sx={{ width: isSmallScreen ? '100%' : '35%', display: 'flex', justifyContent: 'center' }}>
+                        <Box sx={{ textAlign: 'center', marginTop: isSmallScreen ? '20px' : '250px', width: isSmallScreen ? '270px' : '400px' }}>
                             <InfoBox />
                         </Box>
                     </Box>
@@ -70,7 +70,7 @@ export default function HomePage() {
                     <Packages sx={{}} />
                     <Box sx={{ display: 'flex', justifyContent: 'center', padding: 2 }}>
                         <Button sx={{ color: 'primary.main', backgroundColor: 'white' }} onClick={handleBackToHome}>
-                            Back to home
+                            Close Packages
                         </Button>
                     </Box>
                 </Box>
