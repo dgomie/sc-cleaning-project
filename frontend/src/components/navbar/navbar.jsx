@@ -36,7 +36,7 @@ export default function Navbar() {
     };
 
     return (
-        <AppBar position="static" sx={{
+        <AppBar position="fixed" sx={{
             backgroundColor: '#101d2d'
         }}>
             <Container maxWidth="xl">
