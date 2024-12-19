@@ -210,6 +210,14 @@ const resolvers = {
         throw new Error('Failed to create package model');
       }
     },
+
+    removePackage: async (_, { _id }) => {
+      const deletedPackage = await Package.findByIdAndDelete(_id);
+      if (!deletedPackage) {
+        throw new Error('Package not found.');
+      }
+      return deletedPackage;
+    },
   },
 };
 
