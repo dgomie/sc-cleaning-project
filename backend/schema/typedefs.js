@@ -61,6 +61,8 @@ type Query {
   getUser(userId: ID!): User
   getEmployees: [Employee]
   getEmployee(employeeId: String!): Employee
+  getPackages: [Package]
+  getPackage(packageId: ID!): Package
 }
 
 type Mutation {
