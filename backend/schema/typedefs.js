@@ -37,6 +37,7 @@ type Package {
   userId: ID!
   recurring: Boolean!
   dateCreated: Date!
+  scheduledDate: Date!
 }
 
 input UpdateEmployeeInput {
@@ -80,7 +81,7 @@ type Mutation {
   createEmployee(employeeId: String!, firstName: String!, lastName: String!, email: String!, password: String!, role: String!): EmployeeAuth
   removeEmployee(_id: ID!): Employee
   updateEmployee(_id: ID!, updateData: UpdateEmployeeInput!): Employee
-  createPackage(package: String!, price: Float!, userId: ID!, recurring: Boolean!, dateCreated: Date!): Package
+  createPackage(package: String!, price: Float!, userId: ID!, recurring: Boolean!, dateCreated: Date!, scheduleDate: Date!): Package
   removePackage(_id: ID!): Package
   updatePackage(_id: ID!, updateData: UpdatePackageInput!): Package
 }
