@@ -56,11 +56,19 @@ input UpdateUserInput {
     password: String
 }
 
+input UpdatePackageInput {
+    package: String
+    price: Float
+    recurring: Boolean
+}
+
 type Query {
   getUsers: [User]
   getUser(userId: ID!): User
   getEmployees: [Employee]
   getEmployee(employeeId: String!): Employee
+  getPackages: [Package]
+  getPackage(packageId: ID!): Package
 }
 
 type Mutation {
@@ -72,6 +80,9 @@ type Mutation {
   createEmployee(employeeId: String!, firstName: String!, lastName: String!, email: String!, password: String!, role: String!): EmployeeAuth
   removeEmployee(_id: ID!): Employee
   updateEmployee(_id: ID!, updateData: UpdateEmployeeInput!): Employee
+  createPackage(package: String!, price: Float!, userId: ID!, recurring: Boolean!, dateCreated: Date!): Package
+  removePackage(_id: ID!): Package
+  updatePackage(_id: ID!, updateData: UpdatePackageInput!): Package
 }
 `;
 

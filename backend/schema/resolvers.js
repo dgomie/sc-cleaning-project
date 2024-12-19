@@ -1,4 +1,4 @@
-const { User, Employee } = require('../models');
+const { User, Employee, Package } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signUserToken } = require('../utils/user-auth');
 const { signEmployeeToken } = require('../utils/employee-auth');
@@ -61,6 +61,25 @@ const resolvers = {
         throw new Error('Failed to get employee');
       }
     },
+    getPackages: async () => {
+      try {
+        const allPackages = await Package.find();
+        return allPackages
+      } catch (error) {
+        console.error('error getting all packages', error);
+        throw new Error('Failed to get all packages')
+      }
+    },
+    getPackage: async (_, { packageId }) => {
+      try {
+        const onePackage = await Package.findById(packageId);
+        return onePackage
+      } catch (error) {
+        console.error('error getting package', error);
+        throw new Error('Failed to get package')
+      }
+    },
+ 
   },
   Mutation: {
     createUser: async (
@@ -171,6 +190,42 @@ const resolvers = {
         { new: true }
       );
       return updatedEmployee;
+    },
+
+    createPackage: async (
+      _,
+      { package, price, userId, recurring, dateCreated }
+    ) => {
+      try {
+        const newPackage = await Package.create({
+          package,
+          price,
+          userId,
+          recurring,
+          dateCreated
+        });
+        return { package: newPackage };
+      } catch (error) {
+        console.error('Error creating package model:', error);
+        throw new Error('Failed to create package model');
+      }
+    },
+
+    removePackage: async (_, { _id }) => {
+      const deletedPackage = await Package.findByIdAndDelete(_id);
+      if (!deletedPackage) {
+        throw new Error('Package not found.');
+      }
+      return deletedPackage;
+    },
+
+    updatePackage: async (_, { _id, updateData }) => {
+      const updatedPackage = await Package.findOneAndUpdate(
+        { _id: _id },
+        updateData,
+        { new: true }
+      );
+      return updatedPackage;
     },
   },
 };
