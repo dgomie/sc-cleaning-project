@@ -24,6 +24,10 @@ const packageSchema = new Schema({
     required: true,
     default: Date.now
   },
+  scheduledDate: {
+    type: Date,
+    required: true
+  }
 });
 
 
