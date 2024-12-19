@@ -218,6 +218,15 @@ const resolvers = {
       }
       return deletedPackage;
     },
+
+    updatePackage: async (_, { _id, updateData }) => {
+      const updatedPackage = await Package.findOneAndUpdate(
+        { _id: _id },
+        updateData,
+        { new: true }
+      );
+      return updatedPackage;
+    },
   },
 };
 
