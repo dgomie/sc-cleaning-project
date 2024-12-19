@@ -191,6 +191,25 @@ const resolvers = {
       );
       return updatedEmployee;
     },
+
+    createPackage: async (
+      _,
+      { package, price, userId, recurring, dateCreated }
+    ) => {
+      try {
+        const newPackage = await Package.create({
+          package,
+          price,
+          userId,
+          recurring,
+          dateCreated
+        });
+        return { package: newPackage };
+      } catch (error) {
+        console.error('Error creating package model:', error);
+        throw new Error('Failed to create package model');
+      }
+    },
   },
 };
 
