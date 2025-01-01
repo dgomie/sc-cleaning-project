@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
+import { Link } from 'react-router-dom'
+
 
 const pages = ['About', 'Services', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -45,8 +47,8 @@ export default function Navbar() {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
+                        component={Link}
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -88,7 +90,12 @@ export default function Navbar() {
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem
+                                    key={page}
+                                    component={Link}
+                                    to={page === "Services" ? '/services' : '#'}
+                                    onClick={handleCloseNavMenu}
+                                >
                                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                                 </MenuItem>
                             ))}
@@ -98,8 +105,8 @@ export default function Navbar() {
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
+                        component={Link}
+                        to='/'
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -109,6 +116,7 @@ export default function Navbar() {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            marginRight: '40px'
                         }}
                     >
                         SCC
@@ -118,8 +126,11 @@ export default function Navbar() {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
+                                component={Link}
+                                to={page === "Services" ? '/services' : '#'}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
+
                                 {page}
                             </Button>
                         ))}

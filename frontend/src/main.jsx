@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import client from './utils/client';
 import HomePage from './pages/homepage.jsx';
 import ErrorPage from './pages/errorpage.jsx';
+import ServicePage from './pages/servicepage.jsx';
 
 
 import App from './app';
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
+      },
+      {
+        path: '/services',
+        element: <ServicePage />
       },
 
 
