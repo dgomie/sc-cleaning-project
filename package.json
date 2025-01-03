@@ -15,6 +15,7 @@
     "license": "ISC",
     "dependencies": {
         "concurrently": "^9.1.0",
+        "dotenv": "^16.4.7",
         "nodemon": "^3.1.7"
     }
 }
