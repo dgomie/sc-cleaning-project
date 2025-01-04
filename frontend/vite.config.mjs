@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import 'dotenv/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,13 +10,19 @@ export default defineConfig({
     open: true,
     proxy: {
       '/graphql': {
-        target: 'http://localhost:3001',
+        target: process.env.BACKEND_URL,
         changeOrigin: true,
         secure: false,
-      }
+      },
+      '/api': {
+        target: process.env.BACKEND_URL,
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
     },
     build: {
       outDir: 'dist',
     },
-  }
-})
+  },
+});
