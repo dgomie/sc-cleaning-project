@@ -9,6 +9,10 @@ const packageSchema = new Schema({
     type: Number,
     required: true,
   },
+  description: {
+    type: String,
+    required: true
+  },
   dateCreated: {
     type: Date,
     required: true,
