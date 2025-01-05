@@ -34,10 +34,8 @@ type Package {
   _id: ID!
   package: String!
   price: Float!
-  userId: ID!
-  recurring: Boolean!
+  description: String!
   dateCreated: Date!
-  scheduledDate: Date!
 }
 
 input UpdateEmployeeInput {
@@ -60,7 +58,7 @@ input UpdateUserInput {
 input UpdatePackageInput {
     package: String
     price: Float
-    recurring: Boolean
+    description: String
 }
 
 type Query {
@@ -81,7 +79,7 @@ type Mutation {
   createEmployee(employeeId: String!, firstName: String!, lastName: String!, email: String!, password: String!, role: String!): EmployeeAuth
   removeEmployee(_id: ID!): Employee
   updateEmployee(_id: ID!, updateData: UpdateEmployeeInput!): Employee
-  createPackage(package: String!, price: Float!, userId: ID!, recurring: Boolean!, dateCreated: Date!, scheduleDate: Date!): Package
+  createPackage(package: String!, price: Float!, description: String!, dateCreated: Date!): Package
   removePackage(_id: ID!): Package
   updatePackage(_id: ID!, updateData: UpdatePackageInput!): Package
 }

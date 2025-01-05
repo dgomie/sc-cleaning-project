@@ -194,14 +194,13 @@ const resolvers = {
 
     createPackage: async (
       _,
-      { package, price, userId, recurring, dateCreated }
+      { package, price, description, dateCreated }
     ) => {
       try {
         const newPackage = await Package.create({
           package,
           price,
-          userId,
-          recurring,
+          description,
           dateCreated
         });
         return { package: newPackage };
