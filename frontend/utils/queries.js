@@ -60,10 +60,8 @@ export const GET_PACKAGES = gql`
       _id
       package
       price
-      userId
-      recurring
+      description
       dateCreated
-      scheduledDate
     }
   }
 `;
@@ -74,10 +72,8 @@ export const GET_PACKAGE = gql`
       _id
       package
       price
-      userId
-      recurring
+      description
       dateCreated
-      scheduledDate
     }
   }
 `;
