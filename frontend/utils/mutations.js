@@ -147,29 +147,23 @@ export const UPDATE_EMPLOYEE = gql`
 `;
 
 export const CREATE_PACKAGE = gql`
-  mutation CreatePackage(
+  mutation Mutation(
     $package: String!
     $price: Float!
-    $userId: ID!
-    $recurring: Boolean!
+    $description: String!
     $dateCreated: Date!
-    $scheduleDate: Date!
   ) {
     createPackage(
       package: $package
       price: $price
-      userId: $userId
-      recurring: $recurring
+      description: $description
       dateCreated: $dateCreated
-      scheduleDate: $scheduleDate
     ) {
       _id
       package
       price
-      userId
-      recurring
+      description
       dateCreated
-      scheduledDate
     }
   }
 `;
@@ -180,10 +174,8 @@ export const REMOVE_PACKAGE = gql`
       _id
       package
       price
-      userId
-      recurring
+      description
       dateCreated
-      scheduledDate
     }
   }
 `;
@@ -194,10 +186,8 @@ export const UPDATE_PACKAGE = gql`
       _id
       package
       price
-      userId
-      recurring
+      description
       dateCreated
-      scheduledDate
     }
   }
 `;
