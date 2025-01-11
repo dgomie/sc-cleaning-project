@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { Box, Typography, Grid, Button, useMediaQuery } from "@mui/material";
 import image1 from '../../assets/images/SCC 3.jpg';
 
 export default function ServiceBox({ title, description, image }) {
     const isSmallScreen = useMediaQuery('(max-width:900px)');
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Paper, Typography, Button ,useMediaQuery} from '@mui/material';
+import { Box, Grid, Paper, Typography, Button ,useMediaQuery, Link} from '@mui/material';
 
 const packages = [
   { title: 'Package 1 Title', info: 'This is some information about Package 1. It includes details and features.', price: '$100' },
@@ -42,9 +42,11 @@ function Packages() {
               <Typography variant="h6" component="div" sx={{ margin: 2 }}>
                 {pkg.price}
               </Typography>
-              <Button variant="contained" color="primary" sx={{ marginBottom: 2 }}>
-                Learn More
-              </Button>
+              <Link href="/services" underline="none">
+                <Button variant="contained" color="primary" sx={{ marginBottom: 2 }}>
+                  Learn More
+                </Button>
+              </Link>
             </Paper>
           </Grid>
         ))}
