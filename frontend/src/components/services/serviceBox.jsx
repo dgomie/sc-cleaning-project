@@ -1,14 +1,21 @@
 import { useEffect } from 'react';
 import { Box, Typography, Grid, Button, useMediaQuery } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 import image1 from '../../assets/images/SCC 3.jpg';
 
 export default function ServiceBox({ title, description, image }) {
-    const isSmallScreen = useMediaQuery('(max-width:900px)');
+  const isSmallScreen = useMediaQuery('(max-width:900px)');
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/' , {state: {scrollToPackages: true } })
+
+  };
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
             <Box sx={{
@@ -58,9 +65,11 @@ export default function ServiceBox({ title, description, image }) {
                         }}>
                             {description}
                         </Typography>
-                        <Button variant="contained" color="primary">
-                            Schedule
-                        </Button>
+                        {/* <Link to='/'> */}
+                        <Button variant="contained" color="primary" onClick={handleClick}>
+                           Packages
+                         </Button>
+                        {/* </Link> */}
                     </Grid>
                     {!isSmallScreen && (
                         <Grid item xs={12} md={6} sx={{
