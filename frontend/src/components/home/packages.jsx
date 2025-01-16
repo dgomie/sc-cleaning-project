@@ -40,6 +40,7 @@ function Packages() {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [errors, setErrors] = useState({ sqft: '', bedrooms: '', bathrooms: '' });
 
   useEffect(() => {
     if (selectedPackage) {
@@ -70,6 +71,17 @@ function Packages() {
       }
     });
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (isNaN(value)) {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: 'Enter numbers only' }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
+    }
+  };
+
+  const hasErrors = Object.values(errors).some((error) => error !== '');
 
   return (
     <Box
@@ -124,9 +136,36 @@ function Packages() {
               <Typography variant="h6" component="h2">
                 {selectedPackage.title}
               </Typography>
-              <TextField fullWidth label="Square Feet" margin="normal" />
-              <TextField fullWidth label="Number of Bedrooms" margin="normal" />
-              <TextField fullWidth label="Number of Bathrooms" margin="normal" />
+              <TextField
+                fullWidth
+                label="Square Feet"
+                margin="normal"
+                // type="number"
+                name="sqft"
+                onChange={handleInputChange}
+                error={!!errors.sqft}
+                helperText={errors.sqft}
+              />
+              <TextField
+                fullWidth
+                label="Number of Bedrooms"
+                margin="normal"
+                // type="number"
+                name="bedrooms"
+                onChange={handleInputChange}
+                error={!!errors.bedrooms}
+                helperText={errors.bedrooms}
+              />
+              <TextField
+                fullWidth
+                label="Number of Bathrooms"
+                margin="normal"
+                // type="number"
+                name="bathrooms"
+                onChange={handleInputChange}
+                error={!!errors.bathrooms}
+                helperText={errors.bathrooms}
+              />
               <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
                 {selectedPackage.checkboxOptions && selectedPackage.checkboxOptions.map((option, index) => (
                   <FormControlLabel
@@ -137,8 +176,8 @@ function Packages() {
                 ))}
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2 }}>
-                <Button variant="contained" color="primary" onClick={handleClose}>
-                  Submit
+              <Button variant="contained" color="primary" onClick={handleClose} disabled={hasErrors}>
+                  Continue
                 </Button>
                 <Typography variant="h6">
                   Total: ${totalPrice.toFixed(2)}
