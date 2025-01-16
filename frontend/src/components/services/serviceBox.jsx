@@ -67,7 +67,7 @@ export default function ServiceBox({ title, description, image }) {
                         </Typography>
                         {/* <Link to='/'> */}
                         <Button variant="contained" color="primary" onClick={handleClick}>
-                           Packages
+                           View Package
                          </Button>
                         {/* </Link> */}
                     </Grid>
