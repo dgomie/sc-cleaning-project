@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/homepage.jsx';
 import ErrorPage from './pages/errorpage.jsx';
 import ServicePage from './pages/servicepage.jsx';
+import AboutPage from './pages/aboutpage.jsx';
 
 
 import App from './app';
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/services',
         element: <ServicePage />
+      },
+      {
+        path: '/about',
+        element: <AboutPage />
       },
 
 
