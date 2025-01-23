@@ -93,7 +93,7 @@ export default function Navbar() {
                                 <MenuItem
                                     key={page}
                                     component={Link}
-                                    to={page === "Services" ? '/services' : '#'}
+                                    to={page === "Services" ? '/services' : "About" ? '/about' : '#'}
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
@@ -127,7 +127,7 @@ export default function Navbar() {
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 component={Link}
-                                to={page === "Services" ? '/services' : '#'}
+                                to={page === "Services" ? '/services' : "About" ? '/about' : '#'}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
 
