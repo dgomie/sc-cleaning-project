@@ -7,6 +7,7 @@ import HomePage from './pages/homepage.jsx';
 import ErrorPage from './pages/errorpage.jsx';
 import ServicePage from './pages/servicepage.jsx';
 import AboutPage from './pages/aboutpage.jsx';
+import SchedulePage from './pages/schedulepage.jsx';
 
 
 import App from './app';
