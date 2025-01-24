@@ -30,9 +30,10 @@ const router = createBrowserRouter([
         path: '/about',
         element: <AboutPage />
       },
-
-
-
+      {
+        path: '/schedule',
+        element: <SchedulePage />
+      },
     ]
   }
 ]);
