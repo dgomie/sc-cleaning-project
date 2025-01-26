@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <AboutPage />
       },
       {
-        path: '/schedule',
+        path: '/schedule/:param',
         element: <SchedulePage />
       },
     ]
