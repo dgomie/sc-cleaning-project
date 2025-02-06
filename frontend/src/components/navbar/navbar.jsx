@@ -93,12 +93,24 @@ export default function Navbar() {
                                 <MenuItem
                                     key={page}
                                     component={Link}
-                                    to={page === "Services" ? '/services' : "About" ? '/about' : '#'}
+                                    to={
+                                        page === "Services" ? '/services' :
+                                        page === "About" ? '/about' :
+                                        page === "Login" ? '/login' :
+                                        '#'
+                                    }
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                                 </MenuItem>
                             ))}
+                              <MenuItem
+                                component={Link}
+                                to="/login"
+                                onClick={handleCloseNavMenu}
+                            >
+                                <Typography sx={{ textAlign: 'center' }}>Login</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
 
@@ -127,7 +139,12 @@ export default function Navbar() {
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 component={Link}
-                                to={page === "Services" ? '/services' : "About" ? '/about' : '#'}
+                                to={
+                                    page === "Services" ? '/services' :
+                                    page === "About" ? '/about' :
+                                   
+                                    '#'
+                                }
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
 
@@ -135,6 +152,15 @@ export default function Navbar() {
                             </Button>
                         ))}
                     </Box>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <Button
+                            component={Link}
+                            to="/login"
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            Login
+                        </Button>
+                        </Box>
                 </Toolbar>
             </Container>
         </AppBar>
