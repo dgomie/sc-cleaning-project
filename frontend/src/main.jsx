@@ -7,7 +7,12 @@ import HomePage from './pages/homepage.jsx';
 import ErrorPage from './pages/errorpage.jsx';
 import ServicePage from './pages/servicepage.jsx';
 import AboutPage from './pages/aboutpage.jsx';
+
+import LoginPage from './pages/loginpage.jsx';
+import RegisterPage from './pages/registerpage.jsx';
+
 import SchedulePage from './pages/schedulepage.jsx';
+
 
 
 import App from './app';
@@ -32,9 +37,22 @@ const router = createBrowserRouter([
         element: <AboutPage />
       },
       {
+
+        path: '/login',
+        element: <LoginPage />
+      },
+      {
+        path: '/register',
+        element: <RegisterPage />
+      },
+
+
+
+  {
         path: '/schedule/:param',
         element: <SchedulePage />
       },
+
     ]
   }
 ]);
