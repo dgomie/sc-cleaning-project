@@ -34,13 +34,13 @@ export default function PhotoGrid() {
     return (
         <>
 
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', width: isSmallScreen ? '220px' : '420px' }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', width: isSmallScreen ? '220px' : '425px' }}>
                 {photos.map((photo, index) => (
                     <Box
                         component="img"
                         src={photo.before}
                         key={index}
-                        sx={{ width: isSmallScreen ? 50 : 100, height: isSmallScreen ? 50 : 100, border: '2px white solid', cursor: 'pointer' }}
+                        sx={{ width: isSmallScreen ? 50 : 150, height: isSmallScreen ? 50 : 150, border: '2px white solid', cursor: 'pointer' }}
                         onClick={() => handleClickOpen(photo)}
                     />
                 ))}
