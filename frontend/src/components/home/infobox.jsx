@@ -2,13 +2,20 @@ import { Box, Button, useMediaQuery } from '@mui/material'
 
 
 export default function InfoBox() {
-    const isSmallScreen = useMediaQuery('(max-width:900px)')
+    const isSmallScreen = useMediaQuery('(max-width:768px)')
 
 
     return (
         <>
-            <Box sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: isSmallScreen ? '20px' : '30px' }}>
-                <p>hello this is info box, this is information about us, and what we do. This is something we like to do and here is information about us, if u want to learn more click the button below.</p>
+            <Box sx={{ display: 'flex', flexDirection:'column', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: isSmallScreen ? '20px' : '30px' }}>
+                <p>
+                    A clean home is a happy home. We go the extra mile to help make and keep your home clean.
+                    One call is the easiest way to make your home shine. Let us help. Give us a call today.
+                     {/* <br/>
+                     <br/>
+                <span style={{fontSize:'42px', fontWeight:'bold'}}>999-999-9999</span> */}
+                </p>
+
             </Box>
             {/* <Button sx={{}}>
                 Learn more

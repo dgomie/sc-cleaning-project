@@ -25,7 +25,7 @@ export default function EmployeeDisplay({ name, description, image }) {
                     alignItems: 'center',
                     marginBottom: isSmallScreen ? '20px' : '0'
                 }}>
-                    <img style={{ maxHeight: '35vh', objectFit: 'contain' }} src={image} alt={name} />
+                    <img style={{ maxHeight: '30vh', objectFit: 'contain' }} src={image} alt={name} />
                     <Typography variant="h6" sx={{ marginTop: '20px', fontWeight: 'bold' }}>{name}</Typography>
                 </Box>
                 <Box sx={{
