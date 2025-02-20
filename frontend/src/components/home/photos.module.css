@@ -1,0 +1,20 @@
+
+
+.Carousel {
+    /* Add any styles you want for the Carousel component */
+   align-items: center;
+   /* background-color: white; */
+    
+}
+
+.Carousel .slide {
+    background: none !important;
+}
+.Carousel .slide img {
+    border: 2px solid red !important; /* Add a red border to the images */
+}
+
+.Carsousel .renderArrowNext {
+    color: red;
+
+}
