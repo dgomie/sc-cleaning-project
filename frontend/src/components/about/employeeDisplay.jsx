@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, useMediaQuery } from "@mui/material";
 
 export default function EmployeeDisplay({ name, description, image }) {
-    const isSmallScreen = useMediaQuery('(max-width:900px)');
+    const isSmallScreen = useMediaQuery('(max-width:968px)');
 
     return (
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom:'20px' }}>
@@ -19,7 +19,7 @@ export default function EmployeeDisplay({ name, description, image }) {
                 boxSizing: 'border-box'
             }}>
                 <Box sx={{
-                    width: isSmallScreen ? '100%' : '50%',
+                    width: isSmallScreen ? '100%' : '40%',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
