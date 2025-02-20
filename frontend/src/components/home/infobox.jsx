@@ -7,13 +7,13 @@ export default function InfoBox() {
 
     return (
         <>
-            <Box sx={{ display: 'flex', flexDirection:'column', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: isSmallScreen ? '20px' : '30px' }}>
+            <Box sx={{ display: 'flex', flexDirection:'column', textAlign: 'center', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: isSmallScreen ? '20px' : '26px' }}>
                 <p>
                     A clean home is a happy home. We go the extra mile to help make and keep your home clean.
                     One call is the easiest way to make your home shine. Let us help. Give us a call today.
-                     {/* <br/>
                      <br/>
-                <span style={{fontSize:'42px', fontWeight:'bold'}}>999-999-9999</span> */}
+                     <br/>
+                <span style={{fontSize:'42px', fontWeight:'bold'}}>999-999-9999</span>
                 </p>
 
             </Box>

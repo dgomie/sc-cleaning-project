@@ -1,5 +1,6 @@
 import { Box, useMediaQuery } from '@mui/material'
 import PhotoGrid from './photos'
+import Logo from '../../assets/images/DSC_Logo.jpg'
 
 export default function Title() {
     const isSmallScreen = useMediaQuery('(max-width:768px)')
@@ -8,16 +9,14 @@ export default function Title() {
     return (
         <>
             <Box sx={{ fontSize: isSmallScreen ? '50px' : '64px' }}>
-                Devleigh's
-                <br />
-                Squeaky Clean
+              <img style={{maxHeight:'30vh'}} src={Logo} alt={'logo'}/>
             </Box>
             <br />
             <Box sx={{ fontSize: isSmallScreen ? '36px' : '42px' }}>
 
 
 
-                999-999-9999
+                {/* 999-999-9999 */}
 
             </Box>
             {/* {!isSmallScreen && (

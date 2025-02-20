@@ -39,10 +39,10 @@ export default function HomePage() {
            
            <Box ref={topRef} sx={{ height: '100vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
                 <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '50%' }}>
-                    <Box sx={{ textAlign: 'center', marginTop: isSmallScreen ? '0px' : '0px', color: 'white' }}>
+                    <Box sx={{ textAlign: 'center', marginTop: isSmallScreen ? '40px' : '0px', color: 'white' }}>
                         <Title />
                     </Box>
-                    <Box sx={{ textAlign: 'center', marginTop: customIsSmallScreen ? '20px' : '20px', width: customIsSmallScreen ? '270px' : '400px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Box sx={{ textAlign: 'center', marginTop: customIsSmallScreen ? '20px' : '-20px', width: customIsSmallScreen ? '270px' : '400px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <InfoBox />
                         <Button sx={{ color: 'primary.main', backgroundColor: 'white', width: customIsSmallScreen ? '100px' :'200px', height: customIsSmallScreen? '30px' : '50px', fontSize: customIsSmallScreen? '10px' : '16px' }} onClick={handleShowPackages}>
                             View Packages
@@ -50,12 +50,13 @@ export default function HomePage() {
                     </Box>
                 </Box>
                 {!isMediumScreen && (
-                    <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '50%' }}>
-                        <Box sx={{ marginBottom: '70px', fontSize: '20px' }}>
-                            <p>Before & After</p>
-                            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '50%', backgroundColor:'rgb(0,0,0,0.3)'}}>
+                       
+                           
+                            <Box sx={{ display: 'flex', justifyContent: 'center', maxWidth:'500px' }}>
+                                
                                 <PhotoGrid />
-                            </Box>
+                           
                         </Box>
                     </Box>
                 )}
