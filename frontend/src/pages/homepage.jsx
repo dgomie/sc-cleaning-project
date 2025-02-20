@@ -73,7 +73,8 @@ export default function HomePage() {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between',
-                        padding: '20px'
+                        padding: '20px',
+                       
 
                     }}
                 >
