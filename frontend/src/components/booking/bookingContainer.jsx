@@ -1,23 +1,19 @@
-
+import React from 'react';
+import { Box } from '@mui/material';
 
 export default function BookingContainer() {
-    return(
-        <div style={{display:'flex', width:'100%', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
-            <span style={{
-                color:'white',
-                fontSize:'32px',
-                marginTop:'200px',
-                marginBottom:'20px'
-            }}>BOOK NOW</span>
-            <div style={{
-                minHeight:'100vh',
-                width:'80%',
-                backgroundColor:'white',
-                marginBottom:'100px',
-                textAlign: "center"
-            }}>
-                <span style={{color:"red", fontSize:'32px'}}>insert booking koala here</span>
-            </div>
-        </div>
-    )
+  return (
+    <Box>
+      <iframe
+        src="https://gomiescc.bookingkoala.com/booknow?embed=true"
+        style={{ border: 'none', height: '1000px', overflow: 'hidden' }}
+        width="100%"
+        seamless
+      ></iframe>
+      <script
+        src="https://gomiescc.bookingkoala.com/resources/embed.js"
+        defer
+      ></script>
+    </Box>
+  );
 }
