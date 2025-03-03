@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         path: '/register',
         element: <RegisterPage />
       }, {
-        path: '/booking',
+        path: '/booking/:serviceId',
         element: <BookingPage />
       },
 
