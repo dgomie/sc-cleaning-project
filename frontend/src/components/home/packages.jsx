@@ -6,16 +6,19 @@ const packages = [
     title: 'Package 1 Title', 
     info: 'This is some information about Package 1. It includes details and features.', 
     price: '$100',
+    serviceId: 6,
   },
   { 
     title: 'Package 2 Title', 
     info: 'This is some information about Package 2. It includes details and features.', 
     price: '$200',
+    serviceId: 7
   },
   { 
     title: 'Package 3 Title', 
     info: 'This is some information about Package 3. It includes details and features.', 
     price: '$300',
+    serviceId: 8,
   }
 ];
 
@@ -61,7 +64,7 @@ function Packages() {
                     Details
                   </Button>
                 </Link>
-                <Link href="/booking" underline='none'>
+                <Link href={`/booking/${pkg.serviceId}`} underline='none'>
                   <Button variant="contained" color="primary" sx={{ marginBottom: 2, marginLeft: '20px' }} onClick={() => handleOpen(pkg)}>
                     Schedule
                   </Button>
