@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Logo from '../../assets/images/DSC_Logo_transparent_bg.png';
 
 import { Link } from 'react-router-dom'
 
@@ -39,7 +40,7 @@ export default function Navbar() {
 
     return (
         <AppBar position="fixed" sx={{
-            backgroundColor: '#101d2d'
+           background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)'
         }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
@@ -59,7 +60,11 @@ export default function Navbar() {
                             textDecoration: 'none',
                         }}
                     >
-                        SCC
+                       <img
+                            src={Logo}
+                            alt="DSC Logo"
+                            style={{ height: '40px', marginRight: '10px' }}
+                        />
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -131,7 +136,11 @@ export default function Navbar() {
                             marginRight: '40px'
                         }}
                     >
-                        SCC
+                       <img
+                            src={Logo}
+                            alt="DSC Logo"
+                            style={{ height: '40px', marginRight: '10px' }}
+                        />
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (

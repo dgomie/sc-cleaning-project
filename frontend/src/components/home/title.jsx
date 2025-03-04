@@ -4,11 +4,14 @@ import Logo from '../../assets/images/DSC_Logo_transparent_bg.png';
 
 export default function Title() {
   const isSmallScreen = useMediaQuery('(max-width:768px)');
+   const isMediumScreen = useMediaQuery('(max-width:1200px)');
 
   return (
     <>
-      <Box sx={{ fontSize: isSmallScreen ? '50px' : '64px' }}>
-        <img style={{ maxHeight: '30vh' }} src={Logo} alt={'logo'} />
+      <Box sx={{ fontSize: isSmallScreen ? '50px' : '72px', textAlign: isMediumScreen ? 'center' : 'left', alignItems:'flex-start'}}>
+        {/* <img style={{ maxHeight: '30vh' }} src={Logo} alt={'logo'} /> */}
+        <span style={{fontWeight:'bold', textAlign:'left'}}>Devleigh's 
+          <br/> Squeaky Clean</span>
       </Box>
       <br />
       <Box sx={{ fontSize: isSmallScreen ? '36px' : '42px' }}>
