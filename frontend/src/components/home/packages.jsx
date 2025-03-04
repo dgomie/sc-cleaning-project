@@ -64,7 +64,7 @@ function Packages() {
                     Details
                   </Button>
                 </Link>
-                <Link href={`/booking/${pkg.serviceId}`} underline='none'>
+                <Link href={`/booking/?service_id=${pkg.serviceId}`} underline='none'>
                   <Button variant="contained" color="primary" sx={{ marginBottom: 2, marginLeft: '20px' }} onClick={() => handleOpen(pkg)}>
                     Schedule
                   </Button>
