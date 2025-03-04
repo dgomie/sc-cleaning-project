@@ -3,20 +3,20 @@ import { Box, Grid, Paper, Typography, Button, useMediaQuery, Link, Modal, TextF
 
 const packages = [
   { 
-    title: 'Package 1 Title', 
-    info: 'This is some information about Package 1. It includes details and features.', 
+    title: 'Classic Clean', 
+    info: 'Our Classic Clean package includes dusting, vacuuming, mopping, and general tidying up of all rooms. Perfect for regular maintenance.', 
     price: '$100',
     serviceId: 6,
   },
   { 
-    title: 'Package 2 Title', 
-    info: 'This is some information about Package 2. It includes details and features.', 
+    title: 'Deep Clean', 
+    info: 'The Deep Clean package offers a thorough cleaning of your home, including scrubbing bathrooms, kitchens, and hard-to-reach areas. Ideal for a seasonal refresh.', 
     price: '$200',
     serviceId: 7
   },
   { 
-    title: 'Package 3 Title', 
-    info: 'This is some information about Package 3. It includes details and features.', 
+    title: 'Move in / Move out', 
+    info: 'Our Move In/Move Out package ensures your new or old home is spotless. Includes deep cleaning of all rooms, appliances, and fixtures.', 
     price: '$300',
     serviceId: 8,
   }
@@ -46,16 +46,19 @@ function Packages() {
                 justifyContent: 'space-between',
                 textAlign: 'center',
                 padding: isSmallScreen ? 2 : 5,
-                marginTop: isSmallScreen ? '0px' : '100px'
+                marginTop: isSmallScreen ? '-20px' : '100px',
+                marginBottom: isSmallScreen ? '50px' : '0px',
+                boxShadow: '16px 16px 16px rgba(0, 0, 0, 0.7)',
+                borderRadius:'40px',
               }}
             >
-              <Typography variant="h5" component="div" sx={{ marginTop: 2 }}>
+                <Typography variant="h5" component="div" sx={{ marginTop: 2, fontWeight: 'bold', color: '#333', fontSize:'32px' }}>
                 {pkg.title}
               </Typography>
-              <Typography variant="body1" component="div" sx={{ margin: 2 }}>
+              <Typography variant="body1" component="div" sx={{ margin: 2, color: '#333', fontSize:'20px' }}>
                 {pkg.info}
               </Typography>
-              <Typography variant="h6" component="div" sx={{ margin: 2 }}>
+              <Typography variant="h6" component="div" sx={{ margin: 2, fontWeight: 'bold', color: '#007BFF', fontSize:'36px' }}>
                 {pkg.price}
               </Typography>
               <div style={{ display: 'flex', flexDirection: 'row' }}>
