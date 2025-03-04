@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export default function BookingContainer() {
-  const { serviceId } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const serviceId = queryParams.get('service_id');
 
   return (
     <Box sx={{ marginTop: '50px' }}>
