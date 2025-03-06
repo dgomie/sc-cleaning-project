@@ -65,13 +65,14 @@ export default function HomePage() {
                 sx={{
                     height: isMediumScreen ? 'auto' : '100vh',
                     minHeight: isMediumScreen ? '100vh' : 'auto',
-                    backgroundImage: `url(${Photo1})`,
+                    backgroundColor: 'rgb(0,0,0,0.1)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     padding: '20px',
+                    backdropFilter: 'blur(10px)'
                 }}
             >
                 <Packages sx={{}} />

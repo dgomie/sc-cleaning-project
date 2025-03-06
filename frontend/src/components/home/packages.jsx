@@ -1,22 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Grid, Paper, Typography, Button, useMediaQuery, Link, Modal, TextField, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, Grid, Paper, Typography, Button, useMediaQuery, Link, List, ListItem, ListItemIcon, ListItemText, Modal, TextField, FormControlLabel, Checkbox } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
 
 const packages = [
   { 
     title: 'Classic Clean', 
-    info: 'Our Classic Clean package includes dusting, vacuuming, mopping, and general tidying up of all rooms. Perfect for regular maintenance.', 
+    info: [
+      'Dusting',
+      'Vacuuming',
+      'Mopping',
+      'General tidying up',
+      'Window cleaning',
+      'Trash removal',
+  
+    ],
     price: '$100',
     serviceId: 6,
   },
   { 
     title: 'Deep Clean', 
-    info: 'The Deep Clean package offers a thorough cleaning of your home, including scrubbing bathrooms, kitchens, and hard-to-reach areas. Ideal for a seasonal refresh.', 
+    info: [
+      'Scrubbing bathrooms',
+      'Cleaning kitchens',
+      'Hard-to-reach areas',
+      'Baseboard cleaning',
+      'Light fixture cleaning',
+      'Carpet cleaning',
+      
+    ],
     price: '$200',
     serviceId: 7
   },
   { 
     title: 'Move in / Move out', 
-    info: 'Our Move In/Move Out package ensures your new or old home is spotless. Includes deep cleaning of all rooms, appliances, and fixtures.', 
+    info: [
+      'Deep clean of all rooms',
+      'Cleaning appliances',
+      'Cleaning fixtures',
+      'Cabinet cleaning',
+      'Closet cleaning',
+      'Garage cleaning',
+   
+    ],
     price: '$300',
     serviceId: 8,
   }
@@ -24,7 +49,20 @@ const packages = [
 
 function Packages() {
   const isSmallScreen = useMediaQuery('(max-width:900px)');
+  const isMediumScreen = useMediaQuery('(max-width:1500px)');
+  const isLargeScreen = useMediaQuery('(min-width: 2000px)')
 
+  const getFontSize = () => {
+    if (isSmallScreen) {
+      return '14px';
+    } else if (isMediumScreen) {
+      return '20px';
+    } else if (isLargeScreen) {
+      return '26px';
+    } else {
+      return '22px';
+    }
+  };
 
   return (
     <Box
@@ -52,15 +90,49 @@ function Packages() {
                 borderRadius:'40px',
               }}
             >
-                <Typography variant="h5" component="div" sx={{ marginTop: 2, fontWeight: 'bold', color: '#333', fontSize:'32px' }}>
-                {pkg.title}
-              </Typography>
-              <Typography variant="body1" component="div" sx={{ margin: 2, color: '#333', fontSize:'20px' }}>
-                {pkg.info}
-              </Typography>
-              <Typography variant="h6" component="div" sx={{ margin: 2, fontWeight: 'bold', color: '#007BFF', fontSize:'36px' }}>
-                {pkg.price}
-              </Typography>
+    <Box sx={{ width:'100%' }}>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{
+                    marginTop: 2,
+                    fontWeight: 'bold',
+                    color: 'white',
+                    fontSize: isMediumScreen ? '24px' : '32px',
+                    background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)',
+                    borderRadius: '30px', 
+                    padding: '20px 0px', 
+                  }}
+                >
+                  {pkg.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  component="div"
+                  sx={{
+                    fontWeight: 'bold',
+                    color: '#007BFF',
+                    marginTop: 2, // Add margin to move it lower
+                  }}
+                >
+                  starting at...
+                </Typography>
+                <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: '#007BFF', fontSize: isSmallScreen ? '32px':'46px' }}>
+                  
+                  {pkg.price}
+                </Typography>
+              </Box>
+              <List sx={{ margin: 2, color: '#333', fontWeight:'bold', textAlign: 'left', width:'90%', overflow:'auto' }}>
+                {pkg.info.map((item, idx) => (
+                  <ListItem key={idx} sx={{ padding: 0 }}>
+                    <ListItemIcon>
+                      <CheckIcon sx={{ color: '#007BFF' }} />
+                    </ListItemIcon>
+                    <ListItemText primary={item} primaryTypographyProps={{ fontSize: getFontSize() , fontWeight: 'bold' }} />
+                  </ListItem>
+                ))}
+              </List>
+             
               <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <Link href="/services" underline="none">
                   <Button variant="contained" color="white" sx={{ marginBottom: 2 }}>
