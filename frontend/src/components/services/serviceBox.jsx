@@ -4,7 +4,7 @@ import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { useNavigate } from 'react-router-dom';
 
 export default function ServiceBox({ title, description, beforeImage, afterImage, onClick }) {
-  const isSmallScreen = useMediaQuery('(max-width:900px), (max-height:950px)');
+  const isSmallScreen = useMediaQuery('(max-width:900px), (max-height:800px)');
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
         width: '96vw',
         height: '33vh', // Set height to 1/3 of the viewport height
         textAlign: 'center',
-        '@media (max-width: 900px), (max-height:950px)': {
+        '@media (max-width: 950px), (max-height:800px)': {
           height: 'auto',
           padding: '20px'
         }
@@ -36,7 +36,7 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
           height: '100%', // Ensure the Grid takes up the full height of the Box
           padding: '50px',
           flexDirection: isSmallScreen ? 'column' : 'row', // Use column layout on small screens
-          '@media (max-width: 1200px), (max-height:950px)': {
+          '@media (max-width: 1200px), (max-height:800px)': {
             padding: '20px'
           }
         }}>
@@ -62,8 +62,8 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
             </Typography>
             <Typography sx={{
               color: 'black',
-              fontSize: '16px',
-              maxWidth: '900px',
+              fontSize:  '16px',
+              maxWidth: '700px',
               marginBottom: '20px'
             }}>
               {description}
