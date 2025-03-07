@@ -32,7 +32,7 @@ const packages = [
     serviceId: 7
   },
   { 
-    title: 'Move in / Move out', 
+    title: 'Move In / Out', 
     info: [
       'Deep clean of all rooms',
       'Cleaning appliances',
