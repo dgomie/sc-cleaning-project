@@ -1,57 +1,53 @@
-import React, { useState } from 'react';
-import { Box, useMediaQuery } from '@mui/material';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import styles from './photos.module.css'
-
-import BeforeAfter1 from '../../assets/images/BeforeAfter1.jpg';
-import BeforeAfter2 from '../../assets/images/BeforeAfter2.jpg';
-import BeforeAfter3 from '../../assets/images/BeforeAfter3.jpg';
-import BeforeAfter4 from '../../assets/images/BeforeAfter4.jpg';
-import BeforeAfter5 from '../../assets/images/BeforeAfter5.jpg';
-import BeforeAfter6 from '../../assets/images/BeforeAfter6.jpg';
-import BeforeAfter7 from '../../assets/images/BeforeAfter7.jpg';
-import BeforeAfter8 from '../../assets/images/BeforeAfter8.jpg';
-import BeforeAfter9 from '../../assets/images/BeforeAfter9.jpg';
-import BeforeAfter10 from '../../assets/images/BeforeAfter10.jpg';
+import React, { useState } from 'react'
+import { Box, Dialog, DialogContent, useMediaQuery } from '@mui/material'
+import { ImgComparisonSlider } from '@img-comparison-slider/react'
+import Photo1 from '../../assets/images/SCC background.jpg'
+import Photo2 from '../../assets/images/SCC background2.jpg'
 
 const photos = [
-    { image: BeforeAfter1 },
-    { image: BeforeAfter2 },
-    { image: BeforeAfter3 },
-    { image: BeforeAfter4 },
-    { image: BeforeAfter5 },
-    { image: BeforeAfter6 },
-    { image: BeforeAfter7 },
-    { image: BeforeAfter8 },
-    { image: BeforeAfter9 },
-    { image: BeforeAfter10 },
-
-];
+    { before: Photo1, after: Photo2 },
+]
 
 export default function PhotoGrid() {
-    const isSmallScreen = useMediaQuery('(max-width:900px)');
+    const isSmallScreen = useMediaQuery('(max-width:900px)')
 
- 
+    const [open, setOpen] = useState(false)
+    const [selectedPhoto, setSelectedPhoto] = useState(null)
+
+    const handleClickOpen = (photo) => {
+        setSelectedPhoto(photo)
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+        setSelectedPhoto(null)
+    }
 
     return (
-        <div style={{display:'flex', flexDirection:'column'}}>
-        
-            <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows className={styles.Carousel}>
+        <>
+
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', width: isSmallScreen ? '220px' : '420px' }}>
                 {photos.map((photo, index) => (
                     <Box
+                        component="img"
+                        src={photo.before}
                         key={index}
-                        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: isSmallScreen ? '50vh' : '50vh' }}
-                    >
-                        <Box
-                            component="img"
-                            src={photo.image}
-                            
-                        />
-                    </Box>
+                        sx={{ width: isSmallScreen ? 50 : 100, height: isSmallScreen ? 50 : 100, border: '2px white solid', cursor: 'pointer' }}
+                        onClick={() => handleClickOpen(photo)}
+                    />
                 ))}
-            </Carousel>
-            <span style={{textAlign:'center', color:'white', fontSize:'32px', marginTop:'30px'}}>Before & After</span>
-            </div>
-    );
+            </Box>
+            <Dialog open={open} onClose={handleClose} maxWidth="lg">
+                <DialogContent sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    {selectedPhoto && (
+                        <ImgComparisonSlider>
+                            <img slot="first" src={selectedPhoto.before} alt="Before" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                            <img slot="second" src={selectedPhoto.after} alt="After" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                        </ImgComparisonSlider>
+                    )}
+                </DialogContent>
+            </Dialog>
+        </>
+    )
 }
