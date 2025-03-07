@@ -12,7 +12,8 @@ export default function InfoBox() {
                     One call is the easiest way to make your home shine. Let us help. Give us a call today.
                     <br />
                     <br />
-                    <span style={{ fontSize: '52px', fontWeight: 'bold' }}>999-999-9999</span>
+                    <span style={{ fontSize: isSmallScreen ? 
+                        '36px' : '52px', fontWeight: 'bold' }}>999-999-9999</span>
                 </p>
             </Box>
         </>
