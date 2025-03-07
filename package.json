@@ -17,6 +17,8 @@
         "concurrently": "^9.1.0",
         "dotenv": "^16.4.7",
         "nodemon": "^3.1.7",
+        "react-before-after-slider-component": "^1.1.8",
+        "react-compare-image": "^3.5.0",
         "react-responsive-carousel": "^3.2.23"
     }
 }
