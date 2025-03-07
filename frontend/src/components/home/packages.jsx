@@ -48,7 +48,7 @@ const packages = [
 ];
 
 function Packages() {
-  const isSmallScreen = useMediaQuery('(max-width:900px)');
+  const isSmallScreen = useMediaQuery('(max-width:900px), (max-height: 950px)');
   const isMediumScreen = useMediaQuery('(max-width:1500px)');
   const isLargeScreen = useMediaQuery('(min-width: 2000px)')
 
