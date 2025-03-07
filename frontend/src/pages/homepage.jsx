@@ -4,8 +4,7 @@ import Title from '../components/home/title';
 import InfoBox from '../components/home/infobox';
 import Packages from '../components/home/packages';
 import { Box, Button, useMediaQuery } from '@mui/material';
-import Photo1 from '../assets/images/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-80068.jpg'
-import PhotoGrid from '../components/home/photos';
+
 
 export default function HomePage() {
     const isSmallScreen = useMediaQuery('(max-width:900px)');
