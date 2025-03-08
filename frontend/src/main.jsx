@@ -7,16 +7,11 @@ import HomePage from './pages/homepage.jsx';
 import ErrorPage from './pages/errorpage.jsx';
 import ServicePage from './pages/servicepage.jsx';
 import AboutPage from './pages/aboutpage.jsx';
-
 import LoginPage from './pages/loginpage.jsx';
 import RegisterPage from './pages/registerpage.jsx';
 import BookingPage from './pages/bookingpage.jsx';
-import SchedulePage from './pages/schedulepage.jsx';
 
-
-
-import App from './app';
-
+import App from './App';
 
 const router = createBrowserRouter([
   {
@@ -26,38 +21,30 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />
+        element: <HomePage />,
       },
       {
         path: '/services',
-        element: <ServicePage />
+        element: <ServicePage />,
       },
       {
         path: '/about',
-        element: <AboutPage />
+        element: <AboutPage />,
       },
       {
-
         path: '/login',
-        element: <LoginPage />
+        element: <LoginPage />,
       },
       {
         path: '/register',
-        element: <RegisterPage />
-      }, {
+        element: <RegisterPage />,
+      },
+      {
         path: '/booking/',
-        element: <BookingPage />
+        element: <BookingPage />,
       },
-
-
-
-  {
-        path: '/schedule/:param',
-        element: <SchedulePage />
-      },
-
-    ]
-  }
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -65,5 +52,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <ApolloProvider client={client}> */}
     <RouterProvider router={router} />
     {/* </ApolloProvider> */}
-  </React.StrictMode>,
+  </React.StrictMode>
 );
