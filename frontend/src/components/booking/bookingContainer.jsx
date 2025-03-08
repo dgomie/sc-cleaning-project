@@ -7,6 +7,7 @@ export default function BookingContainer() {
   const queryParams = new URLSearchParams(location.search);
   const serviceId = queryParams.get('service_id');
   const baseUrl = import.meta.env.VITE_BOOKING_BASE_URL;
+  console.log(baseUrl)
 
   return (
     <Box sx={{ marginTop: '50px' }}>
