@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node Backend/server.js",
         "develop": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
-        "install": "cd backend && npm i && cd ../frontend && npm i",
+        "install": "cd frontend && npm i",
         "build": "cd frontend && npm run build",
         "render-build": "npm install && npm run build"
     },
