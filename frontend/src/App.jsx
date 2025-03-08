@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 // import Footer from './components/other/footer';
 import './app.css'
 import Navbar from './components/navbar/navbar';
+import ScrollToTop from './components/utils/scrollToTop';
 
 
 // import {
@@ -40,6 +41,7 @@ function App() {
   return (
     // <ApolloProvider client={client}>
     <>
+    <ScrollToTop/>
       <Navbar />
       <Outlet />
 

@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node Backend/server.js",
         "develop": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
-        "install": "cd backend && npm i && cd ../frontend && npm i",
+        "install": "cd frontend && npm i",
         "build": "cd frontend && npm run build",
         "render-build": "npm install && npm run build"
     },
@@ -16,6 +16,9 @@
     "dependencies": {
         "concurrently": "^9.1.0",
         "dotenv": "^16.4.7",
-        "nodemon": "^3.1.7"
+        "nodemon": "^3.1.7",
+        "react-before-after-slider-component": "^1.1.8",
+        "react-compare-image": "^3.5.0",
+        "react-responsive-carousel": "^3.2.23"
     }
 }
