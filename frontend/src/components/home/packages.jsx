@@ -140,7 +140,7 @@ function Packages() {
                   </Button>
                 </Link>
                 <Link href={`/booking/?service_id=${pkg.serviceId}`} underline='none'>
-                  <Button variant="contained" color="primary" sx={{ marginBottom: 2, marginLeft: '20px' }} onClick={() => handleOpen(pkg)}>
+                  <Button variant="contained" color="primary" sx={{ marginBottom: 2, marginLeft: '20px',               background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)',}} onClick={() => handleOpen(pkg)}>
                     Schedule
                   </Button>
                 </Link>

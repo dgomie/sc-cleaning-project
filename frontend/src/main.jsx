@@ -7,6 +7,9 @@ import HomePage from './pages/homepage.jsx';
 import ErrorPage from './pages/errorpage.jsx';
 import ServicePage from './pages/servicepage.jsx';
 import AboutPage from './pages/aboutpage.jsx';
+
+import ContactPage from './pages/contactpage.jsx';
+
 import LoginPage from './pages/loginpage.jsx';
 import RegisterPage from './pages/registerpage.jsx';
 import BookingPage from './pages/bookingpage.jsx';
@@ -32,6 +35,13 @@ const router = createBrowserRouter([
         element: <AboutPage />,
       },
       {
+
+        path: '/contact',
+        element: <ContactPage />
+      },
+      {
+
+
         path: '/login',
         element: <LoginPage />,
       },
