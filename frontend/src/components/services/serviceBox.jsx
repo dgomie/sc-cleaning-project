@@ -55,8 +55,10 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
               maxWidth: '900px',
               marginBottom: '20px',
               background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)',
-              borderRadius: '30px',
-              width: isSmallScreen ? '100%' : '50%'
+             borderRadius:'12px',
+              width: isSmallScreen ? '100%' : '50%',
+              boxShadow: '4px 8px 8px rgba(0, 0, 0, 0.6)'
+              
             }}>
               {title}
             </Typography>
@@ -73,7 +75,7 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
                 before and after photos
               </Button>
             )}
-            <Button variant="contained" color="primary" onClick={handleClick}>
+            <Button sx={{              background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)'}} variant="contained" color="primary" onClick={handleClick}>
               View Package
             </Button>
          
@@ -85,7 +87,7 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
               alignItems: 'center',
               height: '100%', // Ensure the Grid item takes up the full height
               padding: '10px', // Add padding around the image
-              position: 'relative'
+              position: 'relative',
             }}>
               <Box
                 sx={{
@@ -96,7 +98,7 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
                   alignItems: 'center',
                   flexDirection: 'column',
                   position: 'relative',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}

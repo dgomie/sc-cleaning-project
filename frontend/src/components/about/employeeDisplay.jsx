@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, useMediaQuery } from "@mui/material";
 
-export default function EmployeeDisplay({ name, description, image }) {
+export default function EmployeeDisplay({ name, description, image, title }) {
     const isSmallScreen = useMediaQuery('(max-width:968px)');
 
     return (
@@ -16,7 +16,8 @@ export default function EmployeeDisplay({ name, description, image }) {
                 backgroundColor: 'white',
                 height: 'auto',
                 padding: '50px',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                borderRadius:'50px'
             }}>
                 <Box sx={{
                     width: isSmallScreen ? '100%' : '40%',
@@ -27,6 +28,7 @@ export default function EmployeeDisplay({ name, description, image }) {
                 }}>
                     <img style={{ maxHeight: '30vh', objectFit: 'contain', border: '2px solid black' }} src={image} alt={name} />
                     <Typography variant="h6" sx={{ marginTop: '20px', fontWeight: 'bold' }}>{name}</Typography>
+                    <Typography variant="h6" sx={{ marginTop: '0px', fontWeight: '' }}>{title}</Typography>
                 </Box>
                 <Box sx={{
                     width: isSmallScreen ? '100%' : '50%',
