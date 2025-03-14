@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default function Login() {
+  const baseUrl = import.meta.env.VITE_BOOKING_BASE_URL;
+
   return (
     <div>
       <iframe
-        src="https://gomiescc.bookingkoala.com/login?embed=true"
+        src={`${baseUrl}/login?embed=true`}
         style={{
           border: 'none',
           height: '100vh',
@@ -14,7 +16,7 @@ export default function Login() {
         seamless
       ></iframe>
       <script
-        src="https://gomiescc.bookingkoala.com/resources/embed.js"
+        src={`${baseUrl}/resources/embed.js`}
         defer
       ></script>
     </div>

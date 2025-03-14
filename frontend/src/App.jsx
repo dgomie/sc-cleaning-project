@@ -1,10 +1,9 @@
 import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 // import Footer from './components/other/footer';
-import './app.css'
+import './App.css';
 import Navbar from './components/navbar/navbar';
 import ScrollToTop from './components/utils/scrollToTop';
-
 
 // import {
 //   ApolloClient,
@@ -13,9 +12,6 @@ import ScrollToTop from './components/utils/scrollToTop';
 //   createHttpLink,
 // } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context';
-
-
-
 
 // const httpLink = createHttpLink({
 //   uri: '/graphql', // Ensure this URL matches your server's URL
@@ -37,15 +33,12 @@ import ScrollToTop from './components/utils/scrollToTop';
 // });
 
 function App() {
-
   return (
     // <ApolloProvider client={client}>
     <>
-    <ScrollToTop/>
+      <ScrollToTop />
       <Navbar />
       <Outlet />
-
-
     </>
 
     // </ApolloProvider>
