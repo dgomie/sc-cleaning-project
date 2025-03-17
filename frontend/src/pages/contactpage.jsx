@@ -1,11 +1,25 @@
 import Contact from "../components/contact/contact"
-import { Box } from "@mui/material";
+import ContactForm from "../components/contact/contactform";
+import { Box, useMediaQuery} from "@mui/material";
+
+
 
 
 export default function ContactPage() {
+
+    const isSmallScreen = useMediaQuery('(max-width:900px)');
+
+
     return(
-        <Box sx={{ height:'100vh', display:'flex', justifyContent:'center'}}>
- <Contact/>
+        <Box sx={{ display:'flex', flexDirection:isSmallScreen ? 'column' : 'row' , justifyContent:'center', width:'100%', height:'100vh', textAlign:'center'}}>
+            <Box sx={{width:isSmallScreen ? '100' : '30%', display: 'flex', alignItems:'center', justifyContent:'center'}}>
+                <Contact/>
+            </Box>
+            <Box sx={{width:isSmallScreen ? '100' : '50%', display: 'flex', alignItems:'center', justifyContent:'center'}}>
+                <ContactForm/>
+            </Box>
+
+
         </Box>
        
     )
