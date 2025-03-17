@@ -95,7 +95,7 @@ function Packages() {
                   variant="h5"
                   component="div"
                   sx={{
-                    marginTop: 2,
+                    marginTop: 0,
                     fontWeight: 'bold',
                     color: 'white',
                     fontSize: isMediumScreen ? '24px' : '32px',
