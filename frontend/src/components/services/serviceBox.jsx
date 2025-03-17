@@ -75,7 +75,7 @@ export default function ServiceBox({ title, description, beforeImage, afterImage
                 before and after photos
               </Button>
             )}
-            <Button sx={{              background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)'}} variant="contained" color="primary" onClick={handleClick}>
+            <Button             variant="contained" color="primary" onClick={handleClick}>
               View Package
             </Button>
          
