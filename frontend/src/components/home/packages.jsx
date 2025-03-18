@@ -43,7 +43,7 @@ const packages = [
    
     ],
     price: '$300',
-    serviceId: 8,
+    serviceId: 10,
   }
 ];
 
