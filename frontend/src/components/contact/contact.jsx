@@ -29,7 +29,7 @@ export default function Contact() {
         <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '10px',  justifyContent:isSmallScreen ? 'center' : 'none' }}>
             <LocationOnIcon sx={{ color: 'white', marginRight: '10px' }} />
             <Typography sx={{ fontSize: '22px', color: 'white' }}>
-                123 Main St, Anytown, USA
+                123 Main St, Town, State
             </Typography>
         </Box>
     </Box>
