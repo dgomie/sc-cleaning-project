@@ -35,7 +35,7 @@ export default function HomePage() {
         <>
             <Box ref={topRef} sx={{ height: '100vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
                 <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: isMediumScreen ? 'center' : 'flex-start', justifyContent: 'center', width: '50%', paddingLeft: isMediumScreen ? '0px' : '200px' }}>
-                    <Box sx={{ textAlign: isMediumScreen ? 'center' : 'left', marginTop: isSmallScreen ? '40px' : '0px', color: 'white' }}>
+                    <Box sx={{ textAlign: isMediumScreen ? 'center' : 'left', marginTop: isSmallScreen ? '40px' : '-100px', color: 'white' }}>
                         <Title />
                     </Box>
                     <Box sx={{ textAlign: isMediumScreen ? 'center' : 'left', marginTop: customIsSmallScreen ? '20px' : '-20px', width: customIsSmallScreen ? '270px' : '400px', display: 'flex', flexDirection: 'column', alignItems: isMediumScreen ? 'center' : 'flex-start' }}>
