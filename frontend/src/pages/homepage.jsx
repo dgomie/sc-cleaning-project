@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Title from '../components/home/title';
 import InfoBox from '../components/home/infobox';
 import Packages from '../components/home/packages';
@@ -44,9 +44,11 @@ export default function HomePage() {
                             <Button sx={{ color: 'primary.main', backgroundColor: 'white', width: customIsSmallScreen ? '100px' : '150px', height: customIsSmallScreen ? '30px' : '40px', fontSize: customIsSmallScreen ? '9px' : '12px' }} onClick={handleShowPackages}>
                                 View Packages
                             </Button>
-                            <Button sx={{ color: 'primary.main', backgroundColor: 'white', width: customIsSmallScreen ? '100px' : '150px', height: customIsSmallScreen ? '30px' : '40px', fontSize: customIsSmallScreen ? '10px' : '12px' }}>
-                                Learn more
-                            </Button>
+                            <Link to='/services'>
+                                <Button sx={{ color: 'primary.main', backgroundColor: 'white', width: customIsSmallScreen ? '100px' : '150px', height: customIsSmallScreen ? '30px' : '40px', fontSize: customIsSmallScreen ? '10px' : '12px' }}>
+                                    Learn more
+                                </Button>
+                            </Link>
                         </div>
                     </Box>
                 </Box>
