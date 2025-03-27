@@ -102,6 +102,7 @@ function Packages() {
                     background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)',
                     borderRadius: '30px', 
                     padding: '20px 0px', 
+                    boxShadow: '4px 8px 8px rgba(0, 0, 0, 0.6)'
                   }}
                 >
                   {pkg.title}
