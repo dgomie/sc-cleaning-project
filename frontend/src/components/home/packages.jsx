@@ -9,41 +9,40 @@ const packages = [
       'Dusting',
       'Vacuuming',
       'Mopping',
-      'General tidying up',
-      'Window cleaning',
-      'Trash removal',
+      'Empty Trash',
+      'Bathrooms',
+      'Kitchens',
   
     ],
-    price: '$100',
+    price: '$110',
     serviceId: 6,
   },
   { 
     title: 'Deep Clean', 
     info: [
-      'Scrubbing bathrooms',
-      'Cleaning kitchens',
-      'Hard-to-reach areas',
-      'Baseboard cleaning',
-      'Light fixture cleaning',
-      'Carpet cleaning',
+      'Ceiling fans',
+      'Light fixtures',
+      'Sanitize baseboards',
+      'Windowsills',
+      'Tile and grout',
+      'Wall touchups',
       
     ],
-    price: '$200',
+    price: '$215',
     serviceId: 7
   },
   { 
     title: 'Move In / Out', 
     info: [
-      'Deep clean of all rooms',
-      'Cleaning appliances',
-      'Cleaning fixtures',
-      'Cabinet cleaning',
-      'Closet cleaning',
-      'Garage cleaning',
+      'Inside appliances',
+      'Inside drawers + cabinets',
+      'Window tracks',
+      'Tile + grout cleaning',
+      'Carpet cleaning',
    
     ],
-    price: '$300',
-    serviceId: 8,
+    price: '$295',
+    serviceId: 10,
   }
 ];
 
@@ -95,13 +94,14 @@ function Packages() {
                   variant="h5"
                   component="div"
                   sx={{
-                    marginTop: 2,
+                    marginTop: 0,
                     fontWeight: 'bold',
                     color: 'white',
                     fontSize: isMediumScreen ? '24px' : '32px',
                     background: 'linear-gradient(90deg, #0a1e30 0%, #044f9a 85%, #0a1e30 100%)',
                     borderRadius: '30px', 
                     padding: '20px 0px', 
+                    boxShadow: '4px 8px 8px rgba(0, 0, 0, 0.6)'
                   }}
                 >
                   {pkg.title}
@@ -140,7 +140,7 @@ function Packages() {
                   </Button>
                 </Link>
                 <Link href={`/booking/?service_id=${pkg.serviceId}`} underline='none'>
-                  <Button variant="contained" color="primary" sx={{ marginBottom: 2, marginLeft: '20px' }} onClick={() => handleOpen(pkg)}>
+                  <Button variant="contained" color="primary" sx={{ marginBottom: 2, marginLeft: '20px'}} onClick={() => handleOpen(pkg)}>
                     Schedule
                   </Button>
                 </Link>

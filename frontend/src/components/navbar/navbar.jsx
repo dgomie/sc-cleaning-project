@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom'
 
 
 const pages = ['About', 'Services', 'Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -101,6 +101,7 @@ export default function Navbar() {
                                     to={
                                         page === "Services" ? '/services' :
                                         page === "About" ? '/about' :
+                                        page === "Contact" ? '/contact' :
                                         page === "Login" ? '/login' :
                                         '#'
                                     }
@@ -151,6 +152,8 @@ export default function Navbar() {
                                 to={
                                     page === "Services" ? '/services' :
                                     page === "About" ? '/about' :
+                                    page === "Contact" ? '/contact' :
+                                    page === "Login" ? '/login' :
                                    
                                     '#'
                                 }

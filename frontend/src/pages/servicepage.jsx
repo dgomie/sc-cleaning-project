@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
 import ServiceBox from '../components/services/serviceBox';
-import BeforeImage1 from '../assets/images/BeforeAfter1.jpg';
-import AfterImage1 from '../assets/images/BeforeAfter2.jpg';
-import BeforeImage2 from '../assets/images/BeforeAfter3.jpg';
-import AfterImage2 from '../assets/images/BeforeAfter4.jpg';
+import BeforeImage1 from '../assets/images/before1.png';
+import AfterImage1 from '../assets/images/after1.png';
+import BeforeImage2 from '../assets/images/before2.png';
+import AfterImage2 from '../assets/images/after2.png';
+import BeforeImage3 from '../assets/images/before3.png';
+import AfterImage3 from '../assets/images/after3.png';
+
 import { Dialog, DialogContent } from '@mui/material';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 const servicesData = [
     {
         title: 'Basic Clean',
-        description: 'Our Basic Clean service is designed to keep your home looking fresh and tidy. This service includes dusting all surfaces, vacuuming carpets and rugs, mopping hard floors, and general tidying up of all rooms. We also clean windows, remove trash, ',
+        description: 'Our basic clean package offers essential cleaning services like dusting, vacuuming, and sanitizing high-touch areas, ensuring your space is fresh and tidy. Perfect for regular maintenance or preparing for guests!',
         beforeImage: BeforeImage1,
         afterImage: AfterImage1
     },
     {
         title: 'Deep Clean',
-        description: 'Our Deep Clean service goes beyond the basics to tackle the hard-to-reach areas and stubborn dirt that accumulates over time. This comprehensive cleaning includes scrubbing bathrooms, cleaning kitchens, and addressing hard-to-reach areas such as baseboards and light fixtures. We also provide carpet cleaning and ensure that every nook and',
+        description: 'A deep clean focuses on a thorough cleaning of your space, covering detailed tasks like sanitizing light fixtures and dusting ceiling fans while tackling dust in hard-to-reach spots. It\'s great for seasonal refreshes or after events, making sure everything is spotless and revitalized.',
         beforeImage: BeforeImage2,
         afterImage: AfterImage2
     },
     {
         title: 'Move In / Out',
-        description: 'Our Move In / Out service is designed to make your transition to a new home as smooth as possible. We provide a deep clean of all rooms, ensuring that every surface is spotless and ready for you to move in or out. This service includes cleaning appliances, fixtures, cabinets, closets, and even the garage. We ensure that your new.',
-        beforeImage: BeforeImage2,
-        afterImage: AfterImage2
+        description: 'Move-in/out cleaning is an essential step in transitioning between homes. It includes deep cleaning tasks such as scrubbing floors, sanitizing bathrooms, and wiping down surfaces, making it easier for everyone involved to settle in or hand over the keys with peace of mind.',
+        beforeImage: BeforeImage3,
+        afterImage: AfterImage3
     },
     // Add more services as needed
 ];
