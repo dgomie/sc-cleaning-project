@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ServiceBox from '../components/services/serviceBox';
-import BeforeImage1 from '../assets/images/BeforeAfter1.jpg';
-import AfterImage1 from '../assets/images/BeforeAfter2.jpg';
-import BeforeImage2 from '../assets/images/BeforeAfter3.jpg';
-import AfterImage2 from '../assets/images/BeforeAfter4.jpg';
+import BeforeImage1 from '../assets/images/before1.png';
+import AfterImage1 from '../assets/images/after1.png';
+import BeforeImage2 from '../assets/images/before2.png';
+import AfterImage2 from '../assets/images/after2.png';
+import BeforeImage3 from '../assets/images/before3.png';
+import AfterImage3 from '../assets/images/after3.png';
+
 import { Dialog, DialogContent } from '@mui/material';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
@@ -23,8 +26,8 @@ const servicesData = [
     {
         title: 'Move In / Out',
         description: 'Move-in/out cleaning is an essential step in transitioning between homes. It includes deep cleaning tasks such as scrubbing floors, sanitizing bathrooms, and wiping down surfaces, making it easier for everyone involved to settle in or hand over the keys with peace of mind.',
-        beforeImage: BeforeImage2,
-        afterImage: AfterImage2
+        beforeImage: BeforeImage3,
+        afterImage: AfterImage3
     },
     // Add more services as needed
 ];
