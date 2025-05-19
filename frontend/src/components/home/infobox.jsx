@@ -13,7 +13,7 @@ export default function InfoBox() {
                     <br />
                     <br />
                     <span style={{ fontSize: isMediumScreen ? 
-                        '36px' : '52px', fontWeight: 'bold' }}>999-999-9999</span>
+                        '36px' : '52px', fontWeight: 'bold' }}>(860) 458-9322</span>
                 </p>
             </Box>
         </>
